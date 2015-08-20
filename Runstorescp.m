@@ -1,35 +1,35 @@
-function varargout = test4(varargin)
-% TEST4 M-file for test4.fig
-%      TEST4 by itself, creates a new TEST4 or raises the
+function varargout = Runstorescp(varargin)
+% RUNSTORESCP M-file for Runstorescp.fig
+%      RUNSTORESCP by itself, creates a new RUNSTORESCP or raises the
 %      existing singleton*.
 %
-%      H = TEST4 returns the handle to a new TEST4 or the handle to
+%      H = RUNSTORESCP returns the handle to a new RUNSTORESCP or the handle to
 %      the existing singleton*.
 %
-%      TEST4('CALLBACK',hObject,eventData,handles,...) calls the local
-%      function named CALLBACK in TEST4.M with the given input arguments.
+%      RUNSTORESCP('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in RUNSTORESCP.M with the given input arguments.
 %
-%      TEST4('Property','Value',...) creates a new TEST4 or raises the
+%      RUNSTORESCP('Property','Value',...) creates a new RUNSTORESCP or raises the
 %      existing singleton*.  Starting from the left, property value pairs are
-%      applied to the GUI before test4_OpeningFunction gets called.  An
+%      applied to the GUI before Runstorescp_OpeningFunction gets called.  An
 %      unrecognized property name or invalid value makes property application
-%      stop.  All inputs are passed to test4_OpeningFcn via varargin.
+%      stop.  All inputs are passed to Runstorescp_OpeningFcn via varargin.
 %
 %      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
 %      instance to run (singleton)".
 %
 % See also: GUIDE, GUIDATA, GUIHANDLES
 
-% Edit the above text to modify the response to help test4
+% Edit the above text to modify the response to help Runstorescp
 
-% Last Modified by GUIDE v2.5 16-Aug-2015 14:23:31
+% Last Modified by GUIDE v2.5 20-Aug-2015 16:20:35
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
 gui_State = struct('gui_Name',       mfilename, ...
                    'gui_Singleton',  gui_Singleton, ...
-                   'gui_OpeningFcn', @test4_OpeningFcn, ...
-                   'gui_OutputFcn',  @test4_OutputFcn, ...
+                   'gui_OpeningFcn', @Runstorescp_OpeningFcn, ...
+                   'gui_OutputFcn',  @Runstorescp_OutputFcn, ...
                    'gui_LayoutFcn',  [] , ...
                    'gui_Callback',   []);
 if nargin && ischar(varargin{1})
@@ -43,15 +43,15 @@ else
 end
 % End initialization code - DO NOT EDIT
 
-% --- Executes just before test4 is made visible.
-function test4_OpeningFcn(hObject, eventdata, handles, varargin)
+% --- Executes just before Runstorescp is made visible.
+function Runstorescp_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-% varargin   command line arguments to test4 (see VARARGIN)
+% varargin   command line arguments to Runstorescp (see VARARGIN)
 
-% Choose default command line output for test4
+% Choose default command line output for Runstorescp
 handles.output = 'Yes';
 
 % Update handles structure
@@ -122,11 +122,11 @@ set(handles.axes1, ...
 % Make the GUI modal
 set(handles.figure1,'WindowStyle','modal')
 
-% UIWAIT makes test4 wait for user response (see UIRESUME)
+% UIWAIT makes Runstorescp wait for user response (see UIRESUME)
 uiwait(handles.figure1);
 
 % --- Outputs from this function are returned to the command line.
-function varargout = test4_OutputFcn(hObject, eventdata, handles)
+function varargout = Runstorescp_OutputFcn(hObject, eventdata, handles)
 % varargout  cell array for returning output args (see VARARGOUT);
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -144,11 +144,13 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 
 status=system('C:\Program Files\dcmtk-3.6.0-win32-i386\bin\storescp');
+
 if status~=0
   disp('é¿çsÇ≈Ç´Ç‹ÇπÇÒÇ≈ÇµÇΩ');
 end
 
 % handles    structure with handles and user data (see GUIDATA)
+
 handles.output = get(hObject,'String');
 
 % Update handles structure
@@ -209,61 +211,3 @@ end
 if isequal(get(hObject,'CurrentKey'),'return')
     uiresume(handles.figure1);
 end    
-
-
-% --- Executes on key press over pushbutton1 with no controls selected.
-function pushbutton1_KeyPressFcn(hObject, eventdata, handles)
-% hObject    handle to pushbutton1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-
-% --- Executes during object creation, after setting all properties.
-function pushbutton1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to pushbutton1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-
-% --- Executes during object deletion, before destroying properties.
-function pushbutton1_DeleteFcn(hObject, eventdata, handles)
-% hObject    handle to pushbutton1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-
-% --- If Enable == 'on', executes on mouse press in 5 pixel border.
-% --- Otherwise, executes on mouse press in 5 pixel border or over pushbutton1.
-function pushbutton1_ButtonDownFcn(hObject, eventdata, handles)
-% hObject    handle to pushbutton1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-
-% --- Executes during object creation, after setting all properties.
-function pushbutton2_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to pushbutton2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-
-% --- Executes during object deletion, before destroying properties.
-function pushbutton2_DeleteFcn(hObject, eventdata, handles)
-% hObject    handle to pushbutton2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-
-% --- If Enable == 'on', executes on mouse press in 5 pixel border.
-% --- Otherwise, executes on mouse press in 5 pixel border or over pushbutton2.
-function pushbutton2_ButtonDownFcn(hObject, eventdata, handles)
-% hObject    handle to pushbutton2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-
-% --- Executes on key press over pushbutton2 with no controls selected.
-function pushbutton2_KeyPressFcn(hObject, eventdata, handles)
-% hObject    handle to pushbutton2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
