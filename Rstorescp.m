@@ -1,26 +1,26 @@
-function varargout = test5(varargin)
-% TEST5 M-file for test5.fig
-%      TEST5 by itself, creates a new TEST5 or raises the
+function varargout = Rstorescp(varargin)
+% RSTORESCP M-file for Rstorescp.fig
+%      RSTORESCP by itself, creates a new RSTORESCP or raises the
 %      existing singleton*.
 %
-%      H = TEST5 returns the handle to a new TEST5 or the handle to
+%      H = RSTORESCP returns the handle to a new RSTORESCP or the handle to
 %      the existing singleton*.
 %
-%      TEST5('CALLBACK',hObject,eventData,handles,...) calls the local
-%      function named CALLBACK in TEST5.M with the given input arguments.
+%      RSTORESCP('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in RSTORESCP.M with the given input arguments.
 %
-%      TEST5('Property','Value',...) creates a new TEST5 or raises the
+%      RSTORESCP('Property','Value',...) creates a new RSTORESCP or raises the
 %      existing singleton*.  Starting from the left, property value pairs are
-%      applied to the GUI before test5_OpeningFunction gets called.  An
+%      applied to the GUI before Rstorescp_OpeningFunction gets called.  An
 %      unrecognized property name or invalid value makes property application
-%      stop.  All inputs are passed to test5_OpeningFcn via varargin.
+%      stop.  All inputs are passed to Rstorescp_OpeningFcn via varargin.
 %
 %      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
 %      instance to run (singleton)".
 %
 % See also: GUIDE, GUIDATA, GUIHANDLES
 
-% Edit the above text to modify the response to help test5
+% Edit the above text to modify the response to help Rstorescp
 
 % Last Modified by GUIDE v2.5 27-Aug-2015 02:48:01
 
@@ -28,8 +28,8 @@ function varargout = test5(varargin)
 gui_Singleton = 1;
 gui_State = struct('gui_Name',       mfilename, ...
                    'gui_Singleton',  gui_Singleton, ...
-                   'gui_OpeningFcn', @test5_OpeningFcn, ...
-                   'gui_OutputFcn',  @test5_OutputFcn, ...
+                   'gui_OpeningFcn', @Rstorescp_OpeningFcn, ...
+                   'gui_OutputFcn',  @Rstorescp_OutputFcn, ...
                    'gui_LayoutFcn',  [] , ...
                    'gui_Callback',   []);
 if nargin && ischar(varargin{1})
@@ -43,16 +43,15 @@ else
 end
 % End initialization code - DO NOT EDIT
 
-
-% --- Executes just before test5 is made visible.
-function test5_OpeningFcn(hObject, eventdata, handles, varargin)
+% --- Executes just before Rstorescp is made visible.
+function Rstorescp_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-% varargin   command line arguments to test5 (see VARARGIN)
+% varargin   command line arguments to Rstorescp (see VARARGIN)
 
-% Choose default command line output for test5
+% Choose default command line output for Rstorescp
 handles.output = 'Yes';
 
 % Update handles structure
@@ -113,11 +112,11 @@ IconCMap=questIconMap;
 % Make the GUI modal
 set(handles.figure1,'WindowStyle','modal')
 
-% UIWAIT makes test5 wait for user response (see UIRESUME)
+% UIWAIT makes Rstorescp wait for user response (see UIRESUME)
 uiwait(handles.figure1);
 
 % --- Outputs from this function are returned to the command line.
-function varargout = test5_OutputFcn(hObject, eventdata, handles)
+function varargout = Rstorescp_OutputFcn(hObject, eventdata, handles)
 % varargout  cell array for returning output args (see VARARGOUT);
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -129,60 +128,13 @@ varargout{1} = handles.output;
 % The figure can be deleted now
 delete(handles.figure1);
 
-function edit1_Callback(hObject, eventdata, handles)
-% hObject    handle to edit1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edit1 as text
-%        str2double(get(hObject,'String')) returns contents of edit1 as a double
-%AET=get(hObject,'String');
-handles.AET = get(hObject,'String');
-guidata(hObject,handles);
-
-
-% --- Executes during object creation, after setting all properties.
-function edit1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-function edit2_Callback(hObject, eventdata, handles)
-% hObject    handle to edit2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edit2 as text
-%        str2double(get(hObject,'String')) returns contents of edit2 as a double
-%PNUM=get(hObject,'String');
-handles.PNUM = get(hObject,'String');
-guidata(hObject,handles);
-
-
-% --- Executes during object creation, after setting all properties.
-function edit2_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-
 % --- Executes on button press in pushbutton1.
 function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
+
 system('cd C:\Program Files\dcmtk-3.6.0-win32-i386\bin');
 AET_PNUM=[handles.AET,blanks(1),handles.PNUM];
-%AET_PNUM=[AET,blanks(1),PNUM];
 status=system('cd C:\Program Files\dcmtk-3.6.0-win32-i386\bin & storescp -aet AET_PNUM');
 
 % handles    structure with handles and user data (see GUIDATA)
@@ -247,4 +199,53 @@ end
 if isequal(get(hObject,'CurrentKey'),'return')
     uiresume(handles.figure1);
 end    
+
+
+
+function edit1_Callback(hObject, eventdata, handles)
+% hObject    handle to edit1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit1 as text
+%        str2double(get(hObject,'String')) returns contents of edit1 as a double
+handles.AET = get(hObject,'String');
+guidata(hObject,handles);
+
+% --- Executes during object creation, after setting all properties.
+function edit1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit2_Callback(hObject, eventdata, handles)
+% hObject    handle to edit2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit2 as text
+%        str2double(get(hObject,'String')) returns contents of edit2 as a double
+handles.PNUM = get(hObject,'String');
+guidata(hObject,handles);
+
+% --- Executes during object creation, after setting all properties.
+function edit2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
 
