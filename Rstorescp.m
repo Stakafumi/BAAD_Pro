@@ -133,7 +133,6 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 
-system('cd C:\Program Files\dcmtk-3.6.0-win32-i386\bin');
 AET_PNUM=[handles.AET,blanks(1),handles.PNUM];
 status=system('cd C:\Program Files\dcmtk-3.6.0-win32-i386\bin & storescp -aet AET_PNUM');
 
